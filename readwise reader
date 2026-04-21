@@ -1,0 +1,218 @@
+/* ==UserStyle==
+@name           Readwise Reader - Code & Typography Fix (CSS Version)
+@namespace      github.com/openstyles/stylus
+@version        2.0.1
+@description    Standard CSS version for Readwise Reader code blocks and typography.
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("read.readwise.io"), domain("") {
+
+  /* ========================================================================
+     1. 代码块容器 (<pre>) 样式
+     ======================================================================== */
+  pre, 
+  .code-block, 
+  [class*="code"], 
+  div[role="region"][aria-label*="code"] {
+    background: #2d2d2d !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #404040 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    margin: 1.2em 0 !important;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15) !important;
+    overflow-x: auto !important;
+    position: relative !important;
+  }
+
+  /* 自定义滚动条 (Webkit 浏览器) */
+  pre::-webkit-scrollbar, 
+  .code-block::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  pre::-webkit-scrollbar-track, 
+  .code-block::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 8px 8px 0;
+  }
+
+  pre::-webkit-scrollbar-thumb, 
+  .code-block::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+  }
+
+  pre::-webkit-scrollbar-thumb:hover, 
+  .code-block::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
+
+  /* 内部的 <code> 标签重置 */
+  pre code, 
+  .code-block code {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border: none !important;
+    font-size: inherit !important;
+    text-shadow: none !important;
+  }
+
+  /* ========================================================================
+     2. 行内代码 (<code> 不在 <pre> 中) 样式
+     ======================================================================== */
+  p code, 
+  li code, 
+  td code, 
+  span code {
+    background: rgba(45, 45, 45, 0.9) !important;
+    color: #3bff00 !important;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', monospace !important;
+    font-size: 0.9em !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    vertical-align: baseline !important;
+    white-space: nowrap !important;
+  }
+
+  /* ========================================================================
+     3. 语法高亮增强
+     ======================================================================== */
+  .token-comment, span[class*="comment"] {
+    color: #7f8c8d !important;
+    font-style: italic;
+  }
+
+  .token-keyword, span[class*="keyword"] {
+   
+color:#414141；
+      font-style: italic!important;
+  }
+
+  .token-string, span[class*="string"] {
+    color: #98c379 !important;
+  }
+
+  .token-function, span[class*="function"] {
+    color: #61afef !important;
+  }
+
+  .token-number, span[class*="number"] {
+    color: #d19a66 !important;
+  }
+
+  .token-operator, span[class*="operator"] {
+    color: #56b6c2 !important;
+  }
+
+  /* ========================================================================
+     4. 排版与字体修复 (原 CSS 部分整理)
+     ======================================================================== */
+  
+  /* 特定摘要类名 */
+  ._summary_cgk2a_3 {
+    font-family: "霞鹜文楷", sans-serif !important;
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
+
+  /* 高亮内容包装器 */
+  ._highlight_1s22n_682 ._highlightContentWrapper_1s22n_698 span {
+    background-color: #00b4ff17;
+  }
+
+  /* 全局段落颜色与对齐 */
+  p {
+    color: #000 !important;
+    text-align: justify !important;
+  }
+
+  /* 高亮文本字体 */
+  .highlight-text {
+    font-family: Monaco, "寒蝉活楷体", sans-serif !important;
+    text-align: justify !important;
+    line-height: 1.6em;
+  }
+
+  /* 布局宽度调整 */
+  .column.is-8-desktop {
+    width: 100%;
+  }
+
+  /* 文档容器字体 */
+  div.rw-chunk-container {
+    font-family: Monaco, "寒蝉端黑宋", sans-serif !important;
+  }
+
+  /* 引用块美化 (合并 classic 和 document-content) */
+  blockquote.classic, 
+  .document-content blockquote {
+    font: italic 16px/1.6 Georgia, serif;
+    padding: 20px 30px;
+    margin: 20px 0;
+    background-color: #fdf6e3;
+    border-left: 4px solid #d9c7a7;
+    position: relative;
+    color: #5a5a5a;
+  }
+
+  blockquote.classic::before, 
+  .document-content blockquote::before {
+    content: "“";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 48px;
+    color: #d9c7a7;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  /* 引用块内部段落特殊处理 */
+  blockquote.classic p, 
+  .document-content blockquote p {
+    font-family: "寒蝉活楷体", "LXGW WenKai GB Screen R", sans-serif !important;
+    font-size: 1.4em !important;
+    display: inline;
+    line-height: 1.2em !important;
+    font-style: normal;
+    color: #5a5a5a;
+  }
+
+  /* 下划线和高亮背景 */
+  u, 
+  .rw-highlight {
+    background-color: #fedc01 !important;
+  }
+
+  /* 加粗文本颜色 */
+  strong {
+    color: #001d36;
+  }
+
+  /* 聚焦内容颜色修正 */
+  #document-text-content:not(.is-youtube-video) .js_contentFocusIndicator_focusedTarget:not(.rw-highlight-resize-handle):not(.rw-highlight-resize-handle *), 
+  #document-text-content:not(.is-youtube-video) .js_contentFocusIndicator_focusedTarget *:not(.rw-highlight-resize-handle):not(.rw-highlight-resize-handle *) {
+    color: #343434;
+  }
+
+  /* 侧边栏和面板 */
+  ._aside_1584k_20 {
+    border-right: 5px solid var(--border-tertiary-alpha);
+    background: white;
+    font-family: "寒蝉端黑宋", sans-serif !important;
+  }
+
+  ._panelContainer_1s22n_420 {
+    background: white;
+    border-left: 5px solid var(--border-tertiary-alpha);
+  }
+
+}
